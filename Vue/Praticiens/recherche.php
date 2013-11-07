@@ -10,7 +10,7 @@ require 'Vue/_Commun/navigation.php';
     <div class="well">
         <form class="form-horizontal" role="form" action="praticiens/resultat" method="post">
             <div class="form-group">
-                <label class="col-sm-3 col-sm-offset-2 control-label">Nom commercial</label>
+                <label class="col-sm-3 col-sm-offset-2 control-label">Nom du praticien</label>
                 <div class="col-sm-5 col-md-4">
                     <select class="form-control" name="id">
                         <?php foreach ($praticiens as $praticien) : ?>

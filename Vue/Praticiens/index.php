@@ -1,6 +1,6 @@
-<?php $this->titre = "Praticiens"; ?>
+<?php $this->titre = "Praticiens"; 
 
-<?php
+
 $menuPraticiens = true;
 require 'Vue/_Commun/navigation.php';
 ?>

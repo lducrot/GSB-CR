@@ -2,14 +2,17 @@
 
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Praticien.php';
+require_once 'Modele/TypePraticien.php';
 
 // Contrôleur des actions liées aux praticiens
 class ControleurPraticiens extends Controleur {
     
     private $praticiens;
+    private $typePraticiens;
 
     public function __construct() {
         $this->praticiens = new Praticien();
+        $this->typePraticiens = new TypePraticien();
     }
     
     // Affiche la liste des praticiens
@@ -31,15 +34,9 @@ class ControleurPraticiens extends Controleur {
     // Affiche l'interface de recherche d'un praticien
     public function recherche() {
         $praticiens = $this->praticiens->getPraticiens();
-        $this->genererVue(array('praticiens' => $praticiens));
+        $praticiensType = $this->typePraticiens->getTypePraticien();
+        $this->genererVue(array('praticiens' => $praticiens, 'praticiensType' => $praticiensType));
     }
-    
-    // Affiche l'interface de recherche d'un praticien
-    public function rechercheAvancee() {
-        $praticiens = $this->praticiens->getPraticiens();
-        $this->genererVue(array('praticiens' => $praticiens));
-    }
-    
     // Affiche le résultat de la recherche d'un praticien
     public function resultat() {
         if ($this->requete->existeParametre("id")) {
@@ -49,28 +46,25 @@ class ControleurPraticiens extends Controleur {
         else
             throw new Exception("Action impossible : aucun praticien défini");
     }
-
-    // Affiche le résultat de la recherche d'un type de praticien
-    public function resultatType() {
-        if ($this->requete->existeParametre("id")) {
-            $idTypePraticien = $this->requete->getParametre("id");
-            $this->afficherType($idTypePraticien);
-        }
-        else
-            throw new Exception("Action impossible : aucun type de praticien défini");
-    }
-
     // Affiche les détails sur un praticien
     private function afficher($idPraticien) {
         $praticien = $this->praticiens->getPraticien($idPraticien);
         $this->genererVue(array('praticien' => $praticien), "details");
     }
-    
-    // Affiche les détails sur un type de praticien
-    private function afficherType($idTypePraticien) {
-        $praticien = $this->praticiens->getTypePraticien($idTypePraticien);
-        $this->genererVue(array('praticien' => $praticien), "details");
+   
+  
+    // Affiche le résultat de la recherche d'un type de praticien
+    public function resultatType() {
+        if ($this->requete->existeParametre("id")) {
+            $idTypePraticien = $this->requete->getParametre("id");
+            
+            $nomPraticiens = $this->requete->getParametre("nom");
+            $villePraticiens = $this->requete->getParametre("ville");
+            $praticiens = $this->praticiens->getRechercherPraticiens($idTypePraticien, $nomPraticiens, $villePraticiens);
+            $this->genererVue(array('praticiens' => $praticiens, 'nomPraticiens' => $nomPraticiens, 'villePraticiens' => $villePraticiens), "index");
+        }
+        else
+            throw new Exception("Action impossible : aucun type de praticien défini");
     }
-    
-    
+   
 }

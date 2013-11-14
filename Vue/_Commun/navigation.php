@@ -23,13 +23,19 @@
                 </ul>
             </li>
             <li class="dropdown <?= isset($menuPraticiens) ? 'active' : '' ?>">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Praticien <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Praticiens<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="praticiens/">Consulter</a></li>
                     <li><a href="praticiens/recherche">Rechercher</a></li>
                 </ul>
             </li>
-            <li class="disabled"><a href="#">Comptes-rendus</a></li>
+            <li class="dropdown <?= isset($menuComptesRendus) ? 'active' : '' ?>">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comptes-rendus <b class="caret"></b></a>
+                <!--<ul class="dropdown-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>-->
+            </li>
         </ul>
     </div>
 </div>

@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Framework/Controleur.php';
+require_once 'Controleur/ControleurSecurise.php';
 require_once 'Modele/Praticien.php';
 require_once 'Modele/TypePraticien.php';
 
 // Contrôleur des actions liées aux praticiens
-class ControleurPraticiens extends Controleur {
+class ControleurPraticiens extends ControleurSecurise {
     
     private $praticiens;
     private $typePraticiens;
@@ -57,7 +57,6 @@ class ControleurPraticiens extends Controleur {
     public function resultatType() {
         if ($this->requete->existeParametre("id")) {
             $idTypePraticien = $this->requete->getParametre("id");
-            
             $nomPraticiens = $this->requete->getParametre("nom");
             $villePraticiens = $this->requete->getParametre("ville");
             $praticiens = $this->praticiens->getRechercherPraticiens($idTypePraticien, $nomPraticiens, $villePraticiens);

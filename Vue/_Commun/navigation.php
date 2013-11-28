@@ -23,7 +23,7 @@
                 </ul>
             </li>
             <li class="dropdown <?= isset($menuPraticiens) ? 'active' : '' ?>">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Praticiens<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Praticiens <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="praticiens/">Consulter</a></li>
                     <li><a href="praticiens/recherche">Rechercher</a></li>
@@ -36,6 +36,9 @@
                     <li><a href="#"></a></li>
                 </ul>-->
             </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="connexion/deconnecter"><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a></li>
         </ul>
     </div>
 </div>

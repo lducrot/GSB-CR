@@ -25,8 +25,9 @@ class Praticien extends Modele {
     }
     
     public function getRechercherPraticiens($idTypePraticien, $nomPraticiens, $villePraticiens) {
-        $sql = $this->sqlPraticien . " where tp.id_type_praticien=? AND p.nom_praticien LIKE '%?%' OR p.ville_praticien LIKE '%?%'";
+        $sql = $this->sqlPraticien . " where tp.id_type_praticien=? AND p.nom_praticien LIKE '%?%' AND p.ville_praticien LIKE '%?%'";
         $typePraticiens = $this->executerRequete($sql, array($idTypePraticien, $nomPraticiens, $villePraticiens));
         return $typePraticiens;
+        
     }  
 }

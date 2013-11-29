@@ -30,9 +30,9 @@ class ControleurComptesRendus extends ControleurSecurise {
             $motif = $this->requete->getParametre("motif");
             $comptesRendus = $this->comptesRendus->ajouter($idPraticien, $idVisiteur, $date, $bilan, $motif);
             $this->genererVue(array('comptesRendus' => $comptesRendus));
-            }
+        }
         else
-            throw new Exception("Action impossible : aucun type de praticien défini");
+            throw new Exception("Action impossible : veuillez passer par le formulaire d'ajout");
     }
     
 }

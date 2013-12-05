@@ -5,7 +5,7 @@ $menuPraticiens = true;
 require 'Vue/_Commun/navigation.php';
 ?>
 
-<!--Recherche simple-->
+<!--Recherche-->
 <div class="container">
     <h2 class="text-center">Recherche de praticiens</h2>
     <div class="well">
@@ -19,6 +19,7 @@ require 'Vue/_Commun/navigation.php';
             </div>
         </div> <br/>
         <div class="tab-content">
+            <!--Recherche simple-->
             <div class="tab-pane fade in active" id="simple">
                 <form class="form-horizontal" role="form" action="praticiens/resultat" method="post">
                     <div class="form-group">

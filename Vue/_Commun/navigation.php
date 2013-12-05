@@ -32,6 +32,7 @@
             <li class="dropdown <?= isset($menuComptesRendus) ? 'active' : '' ?>">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comptes-rendus <b class="caret"></b></a>
                 <ul class="dropdown-menu">
+                    <li><a href="comptesRendus/consulter/">Consulter</a></li>
                     <li><a href="comptesRendus/">Ajouter</a></li>
                 </ul>
             </li>

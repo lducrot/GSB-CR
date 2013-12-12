@@ -6,7 +6,7 @@ class CompteRendu extends Modele {
     
     private $sqlComptesRendus = "select * from rapport_visite rv join PRATICIEN p on rv.id_praticien = p.id_praticien";
     private $sqlAjoutCompteRendu = "insert into rapport_visite (id_praticien, id_visiteur, date_rapport, bilan, motif) values (?, ?, ?, ?, ?);";
-    private $sqlModifieCompteRendu = "update rapport_visite SET bilan='?', motif='?' where id_rapport=?";
+    private $sqlModifieCompteRendu = "update rapport_visite SET bilan=?, motif=? where id_rapport=?";
     private $sqlSupprimeCompteRendu = "delete from rapport_visite where id_rapport=?";
    
     

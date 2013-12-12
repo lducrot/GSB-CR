@@ -57,8 +57,15 @@ class ControleurPraticiens extends ControleurSecurise {
     public function resultatType() {
         if ($this->requete->existeParametre("id")) {
             $idTypePraticien = $this->requete->getParametre("id");
-            $nomPraticiens = $this->requete->getParametre("nom"); 
-            $villePraticiens = $this->requete->getParametre("ville"); 
+            
+        if ($this->requete->existeParametre("nom")) {
+            $nomPraticiens = $this->requete->getParametre("nom"); }
+            else $nomPraticiens = '';
+            
+        if ($this->requete->existeParametre("ville")) {
+            $villePraticiens = $this->requete->getParametre("ville"); }
+            else $villePraticiens = '';
+            
         $praticiens = $this->praticiens->getRechercherPraticiens($idTypePraticien, $nomPraticiens, $villePraticiens);
         $this->genererVue(array('praticiens' => $praticiens, 'nomPraticiens' => $nomPraticiens, 'villePraticiens' => $villePraticiens), "index");
     }

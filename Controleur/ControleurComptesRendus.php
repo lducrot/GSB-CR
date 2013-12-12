@@ -47,10 +47,10 @@ class ControleurComptesRendus extends ControleurSecurise {
     
     public function modifier() {
         if ($this->requete->existeParametre("idCompteRendu")) {
-            $idRapport = $this->requete->getParametre("idCompteRendu");
+            $idCompteRendu = $this->requete->getParametre("idCompteRendu");
         $motif = $this->requete->getParametre("motif");
         $bilan = $this->requete->getParametre("bilan");
-        $compteRenduModifier = $this->compteRendu->modifier($bilan, $motif, $idRapport);
+        $compteRenduModifier = $this->compteRendu->modifier($bilan, $motif, $idCompteRendu);
         $this->genererVue(array('compteRenduModifier' => $compteRenduModifier));
         }
         else

@@ -24,10 +24,10 @@ class Praticien extends Modele {
             throw new Exception("Aucun praticien ne correspond à l'identifiant '$idPraticien'");
     }
     
-    public function getRechercherPraticiens($idTypePraticien, $nomPraticiens, $villePraticiens) {
-        $sql = $this->sqlPraticien . " where tp.id_type_praticien=? AND p.nom_praticien LIKE '%?%' AND p.ville_praticien LIKE '%?%'";
-        $typePraticiens = $this->executerRequete($sql, array($idTypePraticien, $nomPraticiens, $villePraticiens));
-        return $typePraticiens;
+    public function getRechercherPraticiens($idTypePraticien, $nomPraticien, $villePraticien) {
+        $sql = $this->sqlPraticien . " where tp.id_type_praticien=? AND p.nom_praticien LIKE ? AND p.ville_praticien LIKE ?";
+        $typePraticien = $this->executerRequete($sql, array($idTypePraticien, '%'.$nomPraticien.'%', '%'.$villePraticien.'%'));
+        return $typePraticien;
         
     }  
 }
